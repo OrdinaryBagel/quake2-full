@@ -16,6 +16,12 @@ Mini-games(descriptions can also be found in the in-game help menu):
   •  Sharshooter: All player shots are oneshots, player gains 50 points when a shot hits, player loses 25 points when hit, all enemies deal double damage.
   •  Gun-game: Forcces the player to cycle between currently owned weapons, player cannot switch weapons manually, player swaps weapons every kill, player gains 100 points when swapping weapons. Note: if the player only has the blaster they will not swap weapons but will still gain points
 
+New Controls:
+  •  Press F7 while the help menu is open to upgrade HP
+  •  Press F8 while the help menu is open to upgrade damage
+  •  Press F11 while the help menu is open to cycle mini-games
+  •  Press f while the help menu is open to swap help menus
+
 Other:
   •  Player medals and damage upgrades save on death.
   •  Dying forces the player to start a new game on the same difficulty.
