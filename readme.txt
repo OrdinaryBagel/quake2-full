@@ -2,7 +2,7 @@ READ ME
 
 This mod adds mini-games and roguelite-like progression systems to quake 2(random blessing were not added)
 
-How to download: I've included the q2mod folder in this github branch. Simply move that file into your Quake 2 folder and create a Quake 2 shortcut with '+set game q2mod' at the end to play the mod.
+How to download: I've included the q2mod folder in this github branch. Simply move that folder into your Quake 2 folder and create a Quake 2 shortcut with '+set game q2mod' at the end to play the mod.
 
 Currency(3 types):
   •  Medals: Gained everytime entering a new stage, saves between deaths, used to cycle through mini-games
