@@ -932,6 +932,9 @@ void Cmd_Reroll_f(edict_t* ent) {
 void Cmd_ExtraHelp_f(edict_t* ent) {
 	if (ent->client) {
 		if (ent->extra == 1) {
+			ent->extra = 2;
+		}
+		else if (ent->extra == 2) {
 			ent->extra = 0;
 		}
 		else {
