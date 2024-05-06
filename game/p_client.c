@@ -591,6 +591,7 @@ void player_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int damag
 	self->deadflag = DEAD_DEAD;
 
 	gi.linkentity (self);
+	
 }
 
 //=======================================================================
@@ -662,14 +663,13 @@ be mirrored out to the client structure before all the
 edicts are wiped.
 ==================
 */
-void SaveClientData (void)
+void SaveClientData(void)
 {
 	int		i;
-	edict_t	*ent;
-
-	for (i=0 ; i<game.maxclients ; i++)
+	edict_t* ent;
+	for (i = 0; i < game.maxclients; i++)
 	{
-		ent = &g_edicts[1+i];
+		ent = &g_edicts[1 + i];
 		if (!ent->inuse)
 			continue;
 		game.clients[i].pers.healthlvl = ent->healthlvl;
@@ -677,9 +677,9 @@ void SaveClientData (void)
 		game.clients[i].pers.gold = ent->gold;
 		game.clients[i].pers.damagelvl = ent->damagelvl;
 		game.clients[i].pers.health = ent->health;
-		game.clients[i].pers.medals = ent->medals+1;
+		game.clients[i].pers.medals = ent->medals + 1;
 		game.clients[i].pers.max_health = ent->max_health;
-		game.clients[i].pers.savedFlags = (ent->flags & (FL_GODMODE|FL_NOTARGET|FL_POWER_ARMOR));
+		game.clients[i].pers.savedFlags = (ent->flags & (FL_GODMODE | FL_NOTARGET | FL_POWER_ARMOR));
 		if (coop->value)
 			game.clients[i].pers.score = ent->client->resp.score;
 	}
@@ -1025,7 +1025,8 @@ void respawn (edict_t *self)
 	}
 
 	// restart the entire server
-	gi.AddCommandString ("menu_loadgame\n");
+	savetotext();
+	gi.AddCommandString("loading ; killserver ; wait ; newgame\n");
 }
 
 /* 
@@ -1601,6 +1602,14 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 	pmove_t	pm;
 	level.current_entity = ent;
 	client = ent->client;
+	if (ent->mini == 1) {
+		if (ent->timer == 0) {
+			ent->health -= 1;
+			ent->points -= 1;
+			ent->timer = 120;
+		}
+		ent->timer -= 1;
+	}
 	if (level.intermissiontime)
 	{
 		client->ps.pmove.pm_type = PM_FREEZE;

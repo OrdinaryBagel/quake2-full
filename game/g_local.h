@@ -1079,7 +1079,7 @@ struct edict_s
 	int healthlvl;
 	int damagelvl;
 	int medals;
-	int red;
+	int extra;
 	int timer;
 
 	edict_t		*chain;

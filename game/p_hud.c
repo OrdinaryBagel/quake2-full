@@ -309,13 +309,18 @@ void HelpComputer (edict_t *ent)
 	funny2 = "health level: ";
 	funny3 = "damage level: ";
 	if (ent->mini == 1) {
-		funny = "Hyper\nHyper mode doubles the player's move speed \n and triples the number of shots fired \n gain points on kill, lose points as time progresses";
+		funny = "Hyper\nPlayer move speed x2, player shotsx3\ngain points on kill lose points and hp every few frames";
 	}
 	else if (ent->mini == 2) {
-		funny = "Sharpshooter\nTurns all of the player's shots into oneshots \n but all enemies deal extra damage \n gain points on shots hit, lose points on hits taken";
+		funny = "Sharpshooter\nPlayer shots oneshot, enemy damage x2\ngain points on shots hit, lose points on hits taken";
 	}
 	else {
 		funny = "Gun Game\nForces the player to cycle through all \n currently owned weapons, gain points on kill";
+	}
+	if (ent->extra == 1) {
+		funny = "Help\nA random mini-game will be chosen everytime a new area loads\n use medals to cycle mini-games.";
+		funny2 = "Gain medals* every level load, gain gold on kill to upgrade health \n and points to upgrade damage*(250 each)";
+		funny3 = "*Medals and damageups are permanent";
 	}
 	if (skill->value == 0)
 		sk = "easy";
@@ -327,22 +332,40 @@ void HelpComputer (edict_t *ent)
 		sk = "hard+";
 
 	// send the layout
-	Com_sprintf (string, sizeof(string),
-		"xv 32 yv 8 picn help "			// background
-		"xv 202 yv 12 string2 \"%s\" "		// skill
-		"xv 0 yv 24 cstring2 \"%s\" "		// level name
-		"xv 0 yv 54 cstring2 \"%s\" "		// help 1
-		"xv 0 yv 110 cstring2 \"%s %i \n %s %i\" "		// help 2
-		"xv 50 yv 164 string2 \" gold     points    medals\" "
-		"xv 50 yv 172 string2 \"%i  \t\t\t   %i   \t\t\t    %i\" ", 
-		sk,
-		level.level_name,
-		funny,
-		funny2, ent->healthlvl, funny3, ent->damagelvl,
-		ent->gold, 
-		ent->points,
-		ent->medals);
-
+	if (ent->extra == 1) {
+		Com_sprintf(string, sizeof(string),
+			"xv 32 yv 8 picn help "			// background
+			"xv 202 yv 12 string2 \"%s\" "		// skill
+			"xv 0 yv 24 cstring2 \"%s\" "		// level name
+			"xv 0 yv 54 cstring2 \"%s\" "		// help 1
+			"xv 0 yv 110 cstring2 \"%s\" "		// help 2
+			"xv 50 yv 164 string2 \" gold     points    medals\" "
+			"xv 50 yv 172 string2 \"%i  \t\t\t   %i   \t\t\t    %i\" ",
+			sk,
+			funny3,
+			funny,
+			funny2,
+			ent->gold,
+			ent->points,
+			ent->medals);
+	}
+	else {
+		Com_sprintf(string, sizeof(string),
+			"xv 32 yv 8 picn help "			// background
+			"xv 202 yv 12 string2 \"%s\" "		// skill
+			"xv 0 yv 24 cstring2 \"%s\" "		// level name
+			"xv 0 yv 54 cstring2 \"%s\" "		// help 1
+			"xv 0 yv 110 cstring2 \"%s %i \n %s %i\" "		// help 2
+			"xv 50 yv 164 string2 \" gold     points    medals\" "
+			"xv 50 yv 172 string2 \"%i  \t\t\t   %i   \t\t\t    %i\" ",
+			sk,
+			level.level_name,
+			funny,
+			funny2, ent->healthlvl, funny3, ent->damagelvl,
+			ent->gold,
+			ent->points,
+			ent->medals);
+	}
 	gi.WriteByte (svc_layout);
 	gi.WriteString (string);
 	gi.unicast (ent, true);

@@ -392,7 +392,9 @@ void ReadField (FILE *f, field_t *field, byte *base)
 }
 
 //=========================================================
-
+void superSave(gclient_t* client) {
+	
+}
 /*
 ==============
 WriteClient
@@ -422,6 +424,7 @@ void WriteClient (FILE *f, gclient_t *client)
 	{
 		WriteField2 (f, field, (byte *)client);
 	}
+	superSave(&client);
 }
 
 /*

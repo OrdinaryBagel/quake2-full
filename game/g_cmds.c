@@ -901,7 +901,7 @@ void Cmd_PlayerList_f(edict_t *ent)
 	gi.cprintf(ent, PRINT_HIGH, "%s", text);
 }
 void Cmd_DamageUp_f(edict_t* ent) {
-	if (ent->client->showhelp && ent->points>=250) {
+	if (ent->client->showhelp && ent->points>=250 && ent->healthlvl < 9) {
 		ent->damagelvl += 1;
 		ent->points -= 250;
 		Cmd_Help_f(ent);
@@ -929,15 +929,16 @@ void Cmd_Reroll_f(edict_t* ent) {
 		Cmd_Help_f(ent);
 	}
 }
-void Cmd_RLGL_f(edict_t* ent) {
-	if (ent->client && ent->mini == 3) {
-		if (ent->red == 1) {
-			ent->health -= 5;
-			ent->points -= 5;
+void Cmd_ExtraHelp_f(edict_t* ent) {
+	if (ent->client) {
+		if (ent->extra == 1) {
+			ent->extra = 0;
 		}
 		else {
-			ent->points += 5;
+			ent->extra = 1;
 		}
+		Cmd_Help_f(ent);
+		Cmd_Help_f(ent);
 	}
 }
 
@@ -993,6 +994,11 @@ void ClientCommand (edict_t *ent)
 	if (Q_stricmp(cmd, "reroll") == 0)
 	{
 		Cmd_Reroll_f(ent);
+		return;
+	}
+	if (Q_stricmp(cmd, "extrahelp") == 0)
+	{
+		Cmd_ExtraHelp_f(ent);
 		return;
 	}
 

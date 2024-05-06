@@ -235,6 +235,20 @@ void SVCmd_ListIP_f (void)
 SV_WriteIP_f
 =================
 */
+void savetotext(void) {
+	FILE* f;
+	int temp;
+	edict_t *ent;
+	ent = level.current_entity;
+	f = fopen("./q2mod/q2stats.txt", "wb");
+	if (!f) {
+		return;
+	}
+	temp = ent->damagelvl;
+	fprintf(f, "%d ", (int)temp);
+	fprintf(f, "%d", (int)ent->medals);
+	fclose(f);
+}
 void SVCmd_WriteIP_f (void)
 {
 	FILE	*f;

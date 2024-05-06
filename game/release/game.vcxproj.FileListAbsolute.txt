@@ -1,2 +1,3 @@
 C:\Users\tomjm\source\repos\OrdinaryBagel\quake2-full\game\release\gamex86.dll
 D:\q4 mod\quake2-full\game\release\gamex86.dll
+D:\q4mod\quake2-full\game\release\gamex86.dll

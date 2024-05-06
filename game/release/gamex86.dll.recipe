@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\q4 mod\quake2-full\game\release\gamex86.dll</FullPath>
+      <FullPath>D:\q4mod\quake2-full\game\release\gamex86.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
