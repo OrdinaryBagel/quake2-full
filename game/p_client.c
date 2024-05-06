@@ -23,7 +23,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void ClientUserinfoChanged (edict_t *ent, char *userinfo);
 
 void SP_misc_teleporter_dest (edict_t *ent);
-
 //
 // Gross, ugly, disgustuing hack section
 //
@@ -607,9 +606,25 @@ but is called after each death and level change in deathmatch
 void InitClientPersistant (gclient_t *client)
 {
 	gitem_t		*item;
-
+	char* line;
+	char	name[MAX_OSPATH];
+	FILE* permstats;
+	int help;
+	line = "";
 	memset (&client->pers, 0, sizeof(client->pers));
-
+	Com_sprintf(name, sizeof(name), "./q2mod/q2stats.txt");
+	permstats = fopen(name, "r");
+	if (permstats == NULL) {
+		client->pers.damagelvl = 0;
+	}
+	else {
+		//fgets(line, sizeof(name), permstats);
+		if(fscanf(permstats, "%d", &help))
+			client->pers.damagelvl = help;
+		if (fscanf(permstats, "%d", &help))
+			client->pers.medals = help;
+		fclose(permstats);
+	}
 	item = FindItem("Blaster");
 	client->pers.selected_item = ITEM_INDEX(item);
 	client->pers.inventory[client->pers.selected_item] = 1;
@@ -618,7 +633,7 @@ void InitClientPersistant (gclient_t *client)
 
 	client->pers.health			= 100;
 	client->pers.max_health		= 100;
-
+	
 	client->pers.max_bullets	= 200;
 	client->pers.max_shells		= 100;
 	client->pers.max_rockets	= 50;
@@ -657,7 +672,12 @@ void SaveClientData (void)
 		ent = &g_edicts[1+i];
 		if (!ent->inuse)
 			continue;
+		game.clients[i].pers.healthlvl = ent->healthlvl;
+		game.clients[i].pers.points = ent->points;
+		game.clients[i].pers.gold = ent->gold;
+		game.clients[i].pers.damagelvl = ent->damagelvl;
 		game.clients[i].pers.health = ent->health;
+		game.clients[i].pers.medals = ent->medals+1;
 		game.clients[i].pers.max_health = ent->max_health;
 		game.clients[i].pers.savedFlags = (ent->flags & (FL_GODMODE|FL_NOTARGET|FL_POWER_ARMOR));
 		if (coop->value)
@@ -667,7 +687,12 @@ void SaveClientData (void)
 
 void FetchClientEntData (edict_t *ent)
 {
+	ent->healthlvl = ent->client->pers.healthlvl;
+	ent->damagelvl = ent->client->pers.damagelvl;
+	ent->points = ent->client->pers.points;
+	ent->gold = ent->client->pers.gold;
 	ent->health = ent->client->pers.health;
+	ent->medals = ent->client->pers.medals;
 	ent->max_health = ent->client->pers.max_health;
 	ent->flags |= ent->client->pers.savedFlags;
 	if (coop->value)
@@ -1298,7 +1323,8 @@ void ClientBegin (edict_t *ent)
 	int		i;
 
 	ent->client = game.clients + (ent - g_edicts - 1);
-
+	srand(time(NULL));
+	ent->mini = rand() % 3 + 1;
 	if (deathmatch->value)
 	{
 		ClientBeginDeathmatch (ent);
@@ -1573,10 +1599,8 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 	edict_t	*other;
 	int		i, j;
 	pmove_t	pm;
-
 	level.current_entity = ent;
 	client = ent->client;
-
 	if (level.intermissiontime)
 	{
 		client->ps.pmove.pm_type = PM_FREEZE;
@@ -1631,6 +1655,8 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 
 		// perform a pmove
 		gi.Pmove (&pm);
+		if(ent->mini ==1)
+			gi.Pmove(&pm);
 
 		// save results of pmove
 		client->ps.pmove = pm.s;

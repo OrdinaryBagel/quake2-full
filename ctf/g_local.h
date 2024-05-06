@@ -912,7 +912,7 @@ struct gclient_s
 	qboolean	showhelpicon;
 
 	int			ammo_index;
-
+	
 	int			buttons;
 	int			oldbuttons;
 	int			latched_buttons;
@@ -947,7 +947,6 @@ struct gclient_s
 	float		next_drown_time;
 	int			old_waterlevel;
 	int			breather_sound;
-
 	int			machinegun_shots;	// for weapon raising
 
 	// animation vars
@@ -1096,7 +1095,6 @@ struct edict_s
 	float		dmg_radius;
 	int			sounds;			//make this a spawntemp var?
 	int			count;
-
 	edict_t		*chain;
 	edict_t		*enemy;
 	edict_t		*oldenemy;

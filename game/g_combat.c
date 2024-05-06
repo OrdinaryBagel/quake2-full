@@ -95,9 +95,18 @@ void Killed (edict_t *targ, edict_t *inflictor, edict_t *attacker, int damage, v
 		targ->health = -999;
 
 	targ->enemy = attacker;
-
 	if ((targ->svflags & SVF_MONSTER) && (targ->deadflag != DEAD_DEAD))
 	{
+		if (attacker->client) {
+			attacker->gold += 100;
+			if (attacker->mini == 1) {
+				attacker->points += 100;
+			}
+			if (attacker->mini == 3) {
+				Cmd_Drop_f(attacker);
+				Cmd_WeapNext_f(attacker);
+			}
+		}
 //		targ->svflags |= SVF_DEADMONSTER;	// now treat as a different content type
 		if (!(targ->monsterinfo.aiflags & AI_GOOD_GUY))
 		{
@@ -385,7 +394,17 @@ void T_Damage (edict_t *targ, edict_t *inflictor, edict_t *attacker, vec3_t dir,
 
 	if (!targ->takedamage)
 		return;
-
+	if (attacker->client) {
+		damage = damage + (((attacker->damagelvl+1) * 10));
+		if (attacker->mini == 2) {
+			damage += 100000;
+			attacker->points += 50;
+		}
+	}
+	if (targ->client && targ->mini == 2) {
+		targ->points -= 25;
+		damage = damage * 2;
+	}
 	// friendly fire avoidance
 	// if enabled you can't hurt teammates (but you can hurt yourself)
 	// knockback still occurs
@@ -417,7 +436,9 @@ void T_Damage (edict_t *targ, edict_t *inflictor, edict_t *attacker, vec3_t dir,
 		te_sparks = TE_SPARKS;
 
 	VectorNormalize(dir);
-
+	if (attacker->client && (targ->svflags & SVF_MONSTER)) {
+		
+	}
 // bonus damage for suprising a monster
 	if (!(dflags & DAMAGE_RADIUS) && (targ->svflags & SVF_MONSTER) && (attacker->client) && (!targ->enemy) && (targ->health > 0))
 		damage *= 2;

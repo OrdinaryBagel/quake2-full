@@ -1,0 +1,113 @@
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cvar.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\crc.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\console.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\conproc.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\common.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cmodel.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cmd.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cl_view.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cl_tent.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cl_scrn.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cl_pred.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cl_parse.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cl_newfx.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cl_main.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cl_inv.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cl_input.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cl_fx.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cl_ents.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cl_cin.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\cd_win.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\sv_init.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\sv_game.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\sv_ents.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\sv_ccmds.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\snd_win.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\snd_mix.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\snd_mem.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\snd_dma.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\qmenu.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\q_shwin.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\q_shared.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\pmove.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\net_wins.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\net_chan.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\menu.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\md4.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\m_flash.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\keys.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\in_win.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\files.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\x86.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\vid_menu.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\vid_dll.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\sys_win.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\sv_world.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\sv_user.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\sv_send.obj
+c:\users\tomjm\source\repos\ordinarybagel\quake2-full\release\sv_main.obj
+d:\q4 mod\quake2-full\release\cvar.obj
+d:\q4 mod\quake2-full\release\crc.obj
+d:\q4 mod\quake2-full\release\console.obj
+d:\q4 mod\quake2-full\release\conproc.obj
+d:\q4 mod\quake2-full\release\common.obj
+d:\q4 mod\quake2-full\release\cmodel.obj
+d:\q4 mod\quake2-full\release\cmd.obj
+d:\q4 mod\quake2-full\release\cl_view.obj
+d:\q4 mod\quake2-full\release\cl_tent.obj
+d:\q4 mod\quake2-full\release\cl_scrn.obj
+d:\q4 mod\quake2-full\release\cl_pred.obj
+d:\q4 mod\quake2-full\release\cl_parse.obj
+d:\q4 mod\quake2-full\release\cl_newfx.obj
+d:\q4 mod\quake2-full\release\cl_main.obj
+d:\q4 mod\quake2-full\release\cl_inv.obj
+d:\q4 mod\quake2-full\release\cl_input.obj
+d:\q4 mod\quake2-full\release\cl_fx.obj
+d:\q4 mod\quake2-full\release\cl_ents.obj
+d:\q4 mod\quake2-full\release\cl_cin.obj
+d:\q4 mod\quake2-full\release\cd_win.obj
+d:\q4 mod\quake2-full\release\sv_init.obj
+d:\q4 mod\quake2-full\release\sv_game.obj
+d:\q4 mod\quake2-full\release\sv_ents.obj
+d:\q4 mod\quake2-full\release\sv_ccmds.obj
+d:\q4 mod\quake2-full\release\snd_win.obj
+d:\q4 mod\quake2-full\release\snd_mix.obj
+d:\q4 mod\quake2-full\release\snd_mem.obj
+d:\q4 mod\quake2-full\release\snd_dma.obj
+d:\q4 mod\quake2-full\release\qmenu.obj
+d:\q4 mod\quake2-full\release\q_shwin.obj
+d:\q4 mod\quake2-full\release\q_shared.obj
+d:\q4 mod\quake2-full\release\pmove.obj
+d:\q4 mod\quake2-full\release\net_wins.obj
+d:\q4 mod\quake2-full\release\net_chan.obj
+d:\q4 mod\quake2-full\release\menu.obj
+d:\q4 mod\quake2-full\release\md4.obj
+d:\q4 mod\quake2-full\release\m_flash.obj
+d:\q4 mod\quake2-full\release\keys.obj
+d:\q4 mod\quake2-full\release\in_win.obj
+d:\q4 mod\quake2-full\release\files.obj
+d:\q4 mod\quake2-full\release\x86.obj
+d:\q4 mod\quake2-full\release\vid_menu.obj
+d:\q4 mod\quake2-full\release\vid_dll.obj
+d:\q4 mod\quake2-full\release\sys_win.obj
+d:\q4 mod\quake2-full\release\sv_world.obj
+d:\q4 mod\quake2-full\release\sv_user.obj
+d:\q4 mod\quake2-full\release\sv_send.obj
+d:\q4 mod\quake2-full\release\sv_main.obj
+d:\q4 mod\quake2-full\release\r_aclipa.obj
+d:\q4 mod\quake2-full\release\r_draw16.obj
+d:\q4 mod\quake2-full\release\r_drawa.obj
+d:\q4 mod\quake2-full\release\r_edgea.obj
+d:\q4 mod\quake2-full\release\r_polysa.obj
+d:\q4 mod\quake2-full\release\r_scana.obj
+d:\q4 mod\quake2-full\release\r_spr8.obj
+d:\q4 mod\quake2-full\release\r_surf8.obj
+d:\q4 mod\quake2-full\release\r_varsa.obj
+d:\q4 mod\quake2-full\release\gamex86.exp
+d:\q4 mod\quake2-full\release\ref_gl.exp
+d:\q4 mod\quake2-full\release\quake2.tlog\cl.command.1.tlog
+d:\q4 mod\quake2-full\release\quake2.tlog\cl.read.1.tlog
+d:\q4 mod\quake2-full\release\quake2.tlog\cl.write.1.tlog
+d:\q4 mod\quake2-full\release\quake2.tlog\rc.command.1.tlog
+d:\q4 mod\quake2-full\release\quake2.tlog\rc.read.1.tlog
+d:\q4 mod\quake2-full\release\quake2.tlog\rc.write.1.tlog

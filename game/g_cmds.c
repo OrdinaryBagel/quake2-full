@@ -569,7 +569,9 @@ void Cmd_WeapNext_f (edict_t *ent)
 		return;
 
 	selected_weapon = ITEM_INDEX(cl->pers.weapon);
-
+	if (ent->mini == 3) {
+		ent->points += 100;
+	}
 	// scan  for the next valid one
 	for (i=1 ; i<=MAX_ITEMS ; i++)
 	{
@@ -898,7 +900,46 @@ void Cmd_PlayerList_f(edict_t *ent)
 	}
 	gi.cprintf(ent, PRINT_HIGH, "%s", text);
 }
-
+void Cmd_DamageUp_f(edict_t* ent) {
+	if (ent->client->showhelp && ent->points>=250) {
+		ent->damagelvl += 1;
+		ent->points -= 250;
+		Cmd_Help_f(ent);
+		Cmd_Help_f(ent);
+	}
+}
+void Cmd_HealthUp_f(edict_t* ent) {
+	if (ent->client->showhelp && ent->gold >= 250&&ent->healthlvl<10) {
+		ent->healthlvl += 1;
+		ent->max_health += 10;
+		ent->health = ent->max_health;
+		ent->client->pers.max_health = ent->max_health;
+		ent->gold -= 250;
+		Cmd_Help_f(ent);
+		Cmd_Help_f(ent);
+	}
+}
+void Cmd_Reroll_f(edict_t* ent) {
+	if (ent->client->showhelp&& ent->medals >0) {
+		ent->medals -= 1;
+		ent->mini -= 1;
+		if (ent->mini < 1)
+			ent->mini = 3;
+		Cmd_Help_f(ent);
+		Cmd_Help_f(ent);
+	}
+}
+void Cmd_RLGL_f(edict_t* ent) {
+	if (ent->client && ent->mini == 3) {
+		if (ent->red == 1) {
+			ent->health -= 5;
+			ent->points -= 5;
+		}
+		else {
+			ent->points += 5;
+		}
+	}
+}
 
 /*
 =================
@@ -939,11 +980,26 @@ void ClientCommand (edict_t *ent)
 		Cmd_Help_f (ent);
 		return;
 	}
+	if (Q_stricmp(cmd, "health_UP") == 0)
+	{
+		Cmd_HealthUp_f(ent);
+		return;
+	}
+	if (Q_stricmp(cmd, "damage_UP") == 0)
+	{
+		Cmd_DamageUp_f(ent);
+		return;
+	}
+	if (Q_stricmp(cmd, "reroll") == 0)
+	{
+		Cmd_Reroll_f(ent);
+		return;
+	}
 
 	if (level.intermissiontime)
 		return;
 
-	if (Q_stricmp (cmd, "use") == 0)
+	if (Q_stricmp (cmd, "use") == 0 && ent->mini!=3)
 		Cmd_Use_f (ent);
 	else if (Q_stricmp (cmd, "drop") == 0)
 		Cmd_Drop_f (ent);
@@ -973,11 +1029,11 @@ void ClientCommand (edict_t *ent)
 		Cmd_InvUse_f (ent);
 	else if (Q_stricmp (cmd, "invdrop") == 0)
 		Cmd_InvDrop_f (ent);
-	else if (Q_stricmp (cmd, "weapprev") == 0)
+	else if (Q_stricmp (cmd, "weapprev") == 0 && ent->mini != 3)
 		Cmd_WeapPrev_f (ent);
-	else if (Q_stricmp (cmd, "weapnext") == 0)
+	else if (Q_stricmp (cmd, "weapnext") == 0 && ent->mini != 3)
 		Cmd_WeapNext_f (ent);
-	else if (Q_stricmp (cmd, "weaplast") == 0)
+	else if (Q_stricmp (cmd, "weaplast") == 0 && ent->mini != 3)
 		Cmd_WeapLast_f (ent);
 	else if (Q_stricmp (cmd, "kill") == 0)
 		Cmd_Kill_f (ent);

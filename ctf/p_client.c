@@ -1289,7 +1289,6 @@ void ClientBegin (edict_t *ent)
 			gi.bprintf (PRINT_HIGH, "%s entered the game\n", ent->client->pers.netname);
 		}
 	}
-
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
 }
@@ -1498,8 +1497,8 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 	pmove_t	pm;
 
 	level.current_entity = ent;
+	
 	client = ent->client;
-
 	if (level.intermissiontime)
 	{
 		client->ps.pmove.pm_type = PM_FREEZE;
@@ -1644,7 +1643,7 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 			Think_Weapon (ent);
 		}
 	}
-
+	
 //ZOID
 //regen tech
 	CTFApplyRegeneration(ent);

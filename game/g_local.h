@@ -851,6 +851,11 @@ typedef struct
 	int			max_grenades;
 	int			max_cells;
 	int			max_slugs;
+	int damagelvl;
+	int healthlvl;
+	int gold;
+	int points;
+	int medals;
 
 	gitem_t		*weapon;
 	gitem_t		*lastweapon;
@@ -1068,6 +1073,14 @@ struct edict_s
 	float		dmg_radius;
 	int			sounds;			//make this a spawntemp var?
 	int			count;
+	int mini;
+	int gold;
+	int points;
+	int healthlvl;
+	int damagelvl;
+	int medals;
+	int red;
+	int timer;
 
 	edict_t		*chain;
 	edict_t		*enemy;
